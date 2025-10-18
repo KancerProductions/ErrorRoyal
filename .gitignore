@@ -1,25 +1,17 @@
-# OS cruft
+# OS/editor junk
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
 
-# Editor temp
-*.swp
-*.tmp
-
-# Roblox binaries (keep code in .lua)
+# Roblox binaries (keep code as .lua in src/)
 *.rbxl
 *.rbxlx
 *.rbxm
 *.rbxmx
 
-# Build/output
-/build/
-dist/
-out/
-
-# Logs
-logs/
+# Logs / temp
 *.log
+_temp/
+_cache/
 
-# Private notes
-*.secret.txt
