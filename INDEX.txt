@@ -1,0 +1,18 @@
+# ErrorRoyal src/ index (scripts only)
+
+ReplicatedStorage/Modules/
+  Inventory/Backpack.Module.lua
+  Movement/MovementSpec.Module.lua
+  Player/PlayerStats.Module.lua
+
+ServerScriptService/
+  Combat/DamageService.Module.lua
+  Combat/KillService.Script.lua
+  Guards/RemoteGuard.Module.lua
+  Systems/PlayerService.Script.lua
+
+StarterPlayer/
+  StarterCharacterScripts/AssertR15.Local.lua
+  StarterPlayerScripts/EffectsClient.Local.lua
+  StarterPlayerScripts/HUDController.Local.lua
+  StarterPlayerScripts/PlayerController.Local.lua
