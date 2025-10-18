@@ -1,0 +1,25 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor temp
+*.swp
+*.tmp
+
+# Roblox binaries (keep code in .lua)
+*.rbxl
+*.rbxlx
+*.rbxm
+*.rbxmx
+
+# Build/output
+/build/
+dist/
+out/
+
+# Logs
+logs/
+*.log
+
+# Private notes
+*.secret.txt
