@@ -1,0 +1,130 @@
+{
+  "version": "1.6.0",
+  "root": "ErrorRoyal/NovaArchive",
+
+  "ui": {
+    "prompt_on_boot": true,
+    "inline_select": true,
+    "remember_last_used": true
+  },
+
+  "preferences": {
+    "paths_comment_header": true,
+    "tunables_at_top": true
+  },
+
+  "defaults": {
+    "studio_paths": {
+      "ReplicatedStorage": "ReplicatedStorage",
+      "ServerScriptService": "ServerScriptService",
+      "StarterPlayer": "StarterPlayer"
+    },
+    "scan_all_lua_on_start": true
+  },
+
+  "scan": {
+    "include": [
+      "ReplicatedStorage/**/*.lua",
+      "ServerScriptService/**/*.lua",
+      "StarterPlayer/**/*.lua"
+    ],
+    "exclude": [
+      "**/_archive/**",
+      "**/.archive/**",
+      "**/*.spec.lua"
+    ],
+    "max_file_kb": 512
+  },
+
+  "guardrails": {
+    "never_delete_on_own": true,
+    "never_move_assets_on_own": true,
+    "ask_before_overwriting": true
+  },
+
+  "security_policy": {
+    "server_authoritative": true,
+    "client_scope": "ui_only",
+    "no_secrets_in_replicatedstorage": true
+  },
+
+  "assistant_output": {
+    "always_full_files": true,
+    "include_path_header": true,
+    "one_script_per_block": true
+  },
+
+  "file_index": [
+    {
+      "path": "ReplicatedStorage/Modules/Inventory/Backpack.Module.lua",
+      "role": "Module",
+      "notes": "Inventory/backpack helpers"
+    },
+    {
+      "path": "ReplicatedStorage/Modules/Movement/MovementSpec.Module.lua",
+      "role": "Module",
+      "notes": "Authoritative movement spec (walk/run speeds, accel, etc.)"
+    },
+    {
+      "path": "ReplicatedStorage/Modules/Player/PlayerStats.Module.lua",
+      "role": "Module",
+      "notes": "Shared player stat layout and helpers"
+    },
+
+    {
+      "path": "ServerScriptService/Combat/DamageService.Module.lua",
+      "role": "ServerModule",
+      "notes": "Damage calc + routing"
+    },
+    {
+      "path": "ServerScriptService/Combat/KillService.Script.lua",
+      "role": "ServerScript",
+      "notes": "On-death pipeline, triggers kill effects (server-authoritative)"
+    },
+    {
+      "path": "ServerScriptService/Guards/RemoteGuard.Module.lua",
+      "role": "ServerModule",
+      "notes": "Per-player rate limiting + argument validation for remotes"
+    },
+    {
+      "path": "ServerScriptService/Systems/PlayerService.Script.lua",
+      "role": "ServerScript",
+      "notes": "PlayerAdded/Removing, character wiring, loaders"
+    },
+
+    {
+      "path": "StarterPlayer/StarterCharacterScripts/AssertR15.Local.lua",
+      "role": "LocalScript",
+      "notes": "Sanity check: R15 rig & animator presence"
+    },
+    {
+      "path": "StarterPlayer/StarterPlayerScripts/EffectsClient.Local.lua",
+      "role": "LocalScript",
+      "notes": "Purely visual client effects (non-authoritative)"
+    },
+    {
+      "path": "StarterPlayer/StarterPlayerScripts/HUDController.Local.lua",
+      "role": "LocalScript",
+      "notes": "HUD wiring + input prompts"
+    },
+    {
+      "path": "StarterPlayer/StarterPlayerScripts/PlayerController.Local.lua",
+      "role": "LocalScript",
+      "notes": "Client input → requests; follows MovementSpec for visuals"
+    }
+  ],
+
+  "conventions": {
+    "header_example": "--[[\\nPath: ${path}\\nPurpose: ${notes}\\n]]",
+    "server_module_suffix": ".Module.lua",
+    "local_script_suffix": ".Local.lua",
+    "server_script_suffix": ".Script.lua"
+  },
+
+  "notes": [
+    "Archive tracks code only (no RemoteEvent placeholders).",
+    "Roles indicate intent: ServerScript/ServerModule run on server; LocalScript runs on client; Module shared or required.",
+    "When you add new files, keep paths under these three roots to stay indexed."
+  ]
+}
+
